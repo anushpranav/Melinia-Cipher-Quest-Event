@@ -1,0 +1,54 @@
+Identifiers & Administrative Details
+ID (object) → A unique identifier for each record in the dataset. Likely a combination of year, case number, and location code.
+CNTYFIPS (object) → County FIPS (Federal Information Processing Standards) code, used to identify counties in the U.S.
+Ori (object) → ORI (Originating Agency Identifier), a unique code assigned to law enforcement agencies.
+State (object) → The U.S. state where the incident occurred.
+Agency (object) → The name of the law enforcement agency reporting the crime.
+Agentype (object) → The type of law enforcement agency (e.g., municipal police, county sheriff, state police).
+Source (object) → Likely indicates the source of the data, such as the FBI or another organization.
+
+Case Details
+Solved (object: Yes/No) → Whether the case has been solved.
+Year (int64) → The year when the crime occurred.
+Month (object) → The month when the crime occurred (e.g., January, February).
+Incident (int64) → Appears to be a numerical identifier for incidents within a given month and year.
+ActionType (object) → Describes the type of update (e.g., "Normal update," "Adjustment"), likely indicating how the case information was processed.
+
+Crime Classification
+Homicide (object) → Type of homicide (e.g., "Murder and non-negligent manslaughter").
+Situation (object) → Categorizes the crime based on the number of victims and offenders (e.g., "Single victim/single offender," "Single victim/unknown offender(s)").
+
+Victim Details
+VicAge (int64) → Age of the victim.
+VicSex (object) → Gender of the victim (e.g., Male, Female).
+VicRace (object) → Race of the victim (e.g., White, Black, Asian).
+VicEthnic (object) → Ethnicity of the victim (e.g., Hispanic, Non-Hispanic, Unknown).
+
+Offender Details
+OffAge (int64) → Age of the offender. If 999, it means unknown.
+OffSex (object) → Gender of the offender (e.g., Male, Female, Unknown).
+OffRace (object) → Race of the offender (e.g., White, Black, Asian).
+OffEthnic (object) → Ethnicity of the offender (e.g., Hispanic, Non-Hispanic, Unknown).
+
+Weapon Used
+Weapon (object) → The weapon used in the crime (e.g., "Handgun - pistol, revolver," "Knife or cutting instrument").
+
+Victim-Offender Relationship
+Relationship (object) → Describes the victim-offender relationship (e.g., "Stranger," "Brother," "Girlfriend," "Relationship not determined").
+
+Circumstances Surrounding the Crime
+Circumstance (object) → Describes the general reason for the crime (e.g., "Other arguments," "Brawl due to influence of alcohol," "All suspected felony type").
+Subcircum (object, sometimes empty) → More specific details about the crime's motive, possibly a subcategory of Circumstance.
+
+Number of Individuals Involved
+VicCount (int64) → The number of victims in the case.
+OffCount (int64) → The number of offenders in the case.
+
+Miscellaneous
+FileDate (float64) → Possibly the date when the case file was last updated (though its numeric format suggests it might need conversion).
+MSA (object) → Metropolitan Statistical Area (MSA) code, representing the region where the incident occurred.
+
+Summary
+Easiest to guess: Year, Month, VicAge, VicSex, OffAge, Weapon, Solved
+Moderately challenging: Situation, ActionType, Agentype, Relationship, Circumstance
+Hardest to guess: Subcircum, FileDate, MSA, CNTYFIPS, Ori
